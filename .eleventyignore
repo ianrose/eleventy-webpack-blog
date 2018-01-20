@@ -1,0 +1,6 @@
+_src
+_config
+README.md
+./index.js
+webpack.config.js
+package.json

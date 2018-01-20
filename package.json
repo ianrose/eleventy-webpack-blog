@@ -1,0 +1,52 @@
+{
+  "name": "eleventy-webpack-blog",
+  "version": "1.0.0",
+  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "scripts": {
+    "eleventy": "npx eleventy",
+    "eleventy-debug": "DEBUG=* npx eleventy",
+    "eleventy-debug-watch": "DEBUG=* npx eleventy --watch",
+    "dev": "npm run-script clean:project; concurrently \"webpack --env=dev --progress --profile --colors; webpack-dev-server --env=dev\" \"npx eleventy --watch\"",
+    "build": "npm run-script clean:project; cross-env NODE_ENV=production webpack --env=prod --progress --profile --colors; --progress --profile --colors; JEKYLL_ENV=production npx eleventy",
+    "clean:project": "if [ -e _data/manifest.json ]; then rm -R _data/manifest.json; fi; if [ -e _site ]; then rm -R _site; fi; if [ -e bundles ]; then rm -R bundles; fi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ianrose/eleventy-webpack-blog"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ianrose/eleventy-webpack-blog/issues"
+  },
+  "homepage": "https://github.com/ianrose/eleventy-webpack-blog#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.2.7",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "concurrently": "^3.5.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "http-server": "^0.10.0",
+    "luxon": "^0.3.1",
+    "node-sass": "^4.5.3",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-scss": "^1.0.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "sw-precache": "^5.2.0",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
+  }
+}
