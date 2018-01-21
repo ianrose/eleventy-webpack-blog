@@ -1,5 +1,7 @@
 # eleventy-webpack-blog
 
+Based on https://github.com/sandoche/Jekyll-webpack-boilerplate
+
 ## Setup
 
 ```
