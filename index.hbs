@@ -6,3 +6,11 @@ navtitle: Home
 ---
 
 <h1>{{metadata.title}}</h1>
+
+<ul>
+{{#each collections.post}}
+  <li>
+    <a href="{{ this.url }}">{{ this.data.title }}</a> 
+  </li>
+{{/each}}
+</ul>

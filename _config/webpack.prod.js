@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = Merge(CommonConfig, {
+  mode: 'production',
   output: {
     filename: '[name]-[hash].bundle.js',
     path: path.resolve('bundles'),
@@ -41,9 +42,7 @@ module.exports = Merge(CommonConfig, {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
-                modules: true,
-                localIdentName: '[local]___[hash:base64:5]'
+                importLoaders: 1 
               }
             },
             {

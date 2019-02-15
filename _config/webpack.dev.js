@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = Merge(CommonConfig, {
+  mode: 'development',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve('bundles'),
