@@ -3,7 +3,7 @@ const CommonConfig = require('./webpack.common.js');
 const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = Merge(CommonConfig, {
@@ -35,7 +35,17 @@ module.exports = Merge(CommonConfig, {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                modules: true,
+                localIdentName: '[local]___[hash:base64:5]'
+              }
+            },
             {
               loader: 'postcss-loader',
               options: {
@@ -46,6 +56,18 @@ module.exports = Merge(CommonConfig, {
             },
             { loader: 'sass-loader'}
           ]
+          /* [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: '_config/postcss.config.js'
+                }
+              }
+            },
+            { loader: 'sass-loader'}
+          ] */
         })
       },
     ]

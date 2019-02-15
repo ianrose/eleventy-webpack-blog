@@ -21,7 +21,8 @@
   "homepage": "https://github.com/ianrose/eleventy-webpack-blog#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.2.7",
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.2.2",
+    "autoprefixer": "^9.4.7",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.3",
@@ -33,11 +34,11 @@
     "css-loader": "^2.1.0",
     "eslint": "^5.13.0",
     "eslint-plugin-import": "^2.16.0",
-    "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.10.0",
     "luxon": "^1.11.2",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
@@ -50,5 +51,8 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "acorn": "^6.1.0"
   }
 }
