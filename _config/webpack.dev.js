@@ -60,21 +60,6 @@ module.exports = Merge(CommonConfig, {
           },
           { loader: 'sass-loader'}
         ]
-        /* ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: '_config/postcss.config.js'
-                }
-              }
-            },
-            { loader: 'sass-loader'}
-          ]
-        }) */
       },
     ]
   },

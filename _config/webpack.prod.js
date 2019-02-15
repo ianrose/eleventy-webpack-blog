@@ -55,18 +55,6 @@ module.exports = Merge(CommonConfig, {
             },
             { loader: 'sass-loader'}
           ]
-          /* [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: '_config/postcss.config.js'
-                }
-              }
-            },
-            { loader: 'sass-loader'}
-          ] */
         })
       },
     ]
