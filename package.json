@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ianrose/eleventy-webpack-blog#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.2.15",
+    "@11ty/eleventy": "^0.7.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
