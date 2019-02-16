@@ -4,7 +4,6 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = Merge(CommonConfig, {
   mode: 'development',
