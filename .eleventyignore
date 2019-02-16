@@ -1,5 +1,6 @@
 _src
 _config
+_scripts
 README.md
 ./index.js
 webpack.config.js
