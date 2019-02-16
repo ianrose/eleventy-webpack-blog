@@ -5,6 +5,11 @@ function dateToISO(str) {
 }
 
 module.exports = function(config) {
+  config.addFilter("isoDate", dateObj => { return dateToISO(dateObj) } );
+  config.addFilter("stripTrailingSlash", string => {
+    return string.charAt(string.length - 1) == '/' ? string.slice(0, -1) : string;
+  });
+
 	return {
 		templateFormats: [
       "png",
@@ -24,23 +29,6 @@ module.exports = function(config) {
       includes: "_includes",
       data: "_data",
       output: "_site"
-    },
-		nunjucksFilters: {
-	    lastUpdatedDate: collection => {
-	      // Newest date in the collection
-	      return dateToISO(collection[ collection.length - 1 ].date);
-	    },
-	    rssDate: dateObj => {
-	      return dateToISO(dateObj);
-	    },
-      url: url => {
-        // If your blog lives in a subdirectory, change this:
-        let rootDir = "/";
-        if( !url || url === "/" ) {
-          return rootDir;
-        }
-        return rootDir + url;
-      }
-		}
+    }
 	};
 };

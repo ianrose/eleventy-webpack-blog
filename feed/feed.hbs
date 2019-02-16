@@ -1,5 +1,35 @@
 ---
 permalink: feed/atom.xml
 ---
+<?xml version="1.0" encoding="utf-8"?>
 
-{{!-- TODO --}}
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedurl }}" rel="self" />
+  <link href="{{ metadata.url }}" />
+  <id>{{ metadata.id }}</id>
+  <updated>{{ isoDate metadata.buildTime }}</updated>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+
+  {{#each collections.post}}
+
+  <entry>
+    <title>{{ this.data.title }}</title>
+    <link href="{{ stripTrailingSlash ../metadata/url }}{{ this.url }}" />
+    <link rel="alternate" type="text/html" href="{{ stripTrailingSlash ../metadata/url }}{{ this.url }}" />
+    <id>{{ stripTrailingSlash ../metadata/url }}{{ this.url }}</id>
+    <updated>{{ isoDate this.date }}</updated>
+    <author>
+      <name>{{ ../metadata/author/name }}</name>
+      <email>{{ ../metadata/author/email }}</email>
+    </author>
+  </entry>
+
+  {{/each}}
+  
+</feed>
