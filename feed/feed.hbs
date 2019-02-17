@@ -20,13 +20,13 @@ permalink: feed/atom.xml
 
   <entry>
     <title>{{ this.data.title }}</title>
-    <link href="{{ stripTrailingSlash ../metadata/url }}{{ this.url }}" />
-    <link rel="alternate" type="text/html" href="{{ stripTrailingSlash ../metadata/url }}{{ this.url }}" />
-    <id>{{ stripTrailingSlash ../metadata/url }}{{ this.url }}</id>
+    <link href="{{ stripTrailingSlash ../metadata.url }}{{ this.url }}" />
+    <link rel="alternate" type="text/html" href="{{ stripTrailingSlash ../metadata.url }}{{ this.url }}" />
+    <id>{{ stripTrailingSlash ../metadata.url }}{{ this.url }}</id>
     <updated>{{ isoDate this.date }}</updated>
     <author>
-      <name>{{ ../metadata/author/name }}</name>
-      <email>{{ ../metadata/author/email }}</email>
+      <name>{{ ../metadata.author.name }}</name>
+      <email>{{ ../metadata.author.email }}</email>
     </author>
   </entry>
 
