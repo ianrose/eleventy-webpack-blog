@@ -1,6 +1,10 @@
 _src
 _config
+_scripts
+_site
+node_modules
 README.md
 ./index.js
 webpack.config.js
 package.json
+package-lock.json

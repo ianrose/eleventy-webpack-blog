@@ -2,11 +2,11 @@ const Merge = require('webpack-merge');
 const CommonConfig = require('./webpack.common.js');
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 module.exports = Merge(CommonConfig, {
+  mode: 'development',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve('bundles'),
@@ -27,7 +27,7 @@ module.exports = Merge(CommonConfig, {
       }
     ),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('[name].css')
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
@@ -38,21 +38,27 @@ module.exports = Merge(CommonConfig, {
       },
       {
         test: /\.(css|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: '_config/postcss.config.js'
-                }
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1 
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: '_config/postcss.config.js'
               }
-            },
-            { loader: 'sass-loader'}
-          ]
-        })
+            }
+          },
+          { loader: 'sass-loader'}
+        ]
       },
     ]
   },
